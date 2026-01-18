@@ -1,47 +1,58 @@
-# Open-Source Alternative Finder (Chrome/Brave Extension)
+# Open-Source Alternative Finder
 
-A lightweight, privacy-respecting extension that suggests **open-source alternatives** for the product site you’re visiting.
+A privacy-friendly browser extension that shows **open-source alternatives**
+when you visit popular SaaS and proprietary product websites.
 
-- Works in **Brave** and **Chrome** (Manifest V3)
-- No tracking, no analytics
-- Suggestions come from a **curated open dataset** (`data/mappings.json`)
+Works in **Chrome** and **Brave**.
 
-## Features
+---
 
-- **Popup UI**: shows alternatives for the current site
-- **Search**: look up products/domains manually
-- **On-page banner** (optional): quick suggestions on supported sites
-- **Contributor-friendly dataset**: add/edit mappings via PRs
+## ✨ What it does
 
-## Install (Developer Mode)
+- Detects the product website you are visiting (e.g. Notion, Slack, Figma)
+- Shows curated **open-source alternatives**
+- Lets anyone suggest new mappings via GitHub issues
+- All data is stored locally — **no tracking, no analytics**
 
-### Chrome
-1. Open `chrome://extensions`
-2. Enable **Developer mode**
-3. Click **Load unpacked**
-4. Select this project folder
+---
 
-### Brave
-1. Open `brave://extensions`
-2. Enable **Developer mode**
-3. Click **Load unpacked**
-4. Select this project folder
+## 📸 Screenshot
+> _(Add a screenshot of the popup here)_
 
-## Configure
-Open the extension **Options** page to:
-- Enable/disable the on-page banner
-- Change how many alternatives appear in the banner
-- Clear “Hide on this site” dismissals
+---
 
-## Contributing
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+## 🧪 Install (Developer Mode)
 
-## Privacy
-- No telemetry
-- No background network calls required for normal operation
-- All mappings are bundled locally in the extension
+1. Clone this repository
+2. Open `chrome://extensions` or `brave://extensions`
+3. Enable **Developer mode**
+4. Click **Load unpacked**
+5. Select this project folder
 
-## Roadmap
-- Optional “update mappings” from GitHub Releases (user-initiated)
-- Better matching (path rules, product signatures)
-- Community voting/notes (still curated)
+---
+
+## 🤝 Contributing
+
+Want to add or improve alternatives?
+
+- Edit [`data/mappings.json`](data/mappings.json)
+- Or open an issue using the **“Suggest mapping”** button in the extension
+
+Example issue:  
+https://github.com/xahid007/oss-alternative-finder/issues/1
+
+---
+
+## 🔒 Privacy
+
+This extension:
+- Does **not** track users
+- Does **not** collect analytics
+- Does **not** make background network requests
+
+Everything runs locally in your browser.
+
+---
+
+## 📜 License
+MIT
