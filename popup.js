@@ -1,6 +1,9 @@
+// popup.js (Chrome/Brave MV3)
+
 const contentEl = document.getElementById("content");
 const subtitleEl = document.getElementById("subtitle");
 const searchEl = document.getElementById("search");
+
 const dataLinkEl = document.getElementById("dataLink");
 const suggestLinkEl = document.getElementById("suggestLink");
 const optionsLinkEl = document.getElementById("optionsLink");
@@ -9,8 +12,9 @@ let mappings = null;
 let currentFound = null;
 let currentHost = null;
 
-// TODO: change these after you publish your repo
-const REPO_WEB = "https://github.com/yourname/oss-alternative-finder";
+// ✅ Your repo
+const REPO_WEB = "https://github.com/xahid007/oss-alternative-finder";
+// Keep as PATH (not a full URL)
 const MAPPINGS_PATH = "data/mappings.json";
 
 function normalizeHost(hostname) {
@@ -20,8 +24,12 @@ function normalizeHost(hostname) {
 
 async function loadMappings() {
   if (mappings) return mappings;
+
   const url = chrome.runtime.getURL("data/mappings.json");
   const res = await fetch(url);
+
+  if (!res.ok) throw new Error("Failed to load data/mappings.json");
+
   mappings = await res.json();
   return mappings;
 }
@@ -37,11 +45,13 @@ function findByQuery(mappingsObj, q) {
       results.push({ domain, entry });
       continue;
     }
+
     const alts = entry.alternatives || [];
     if (alts.some((a) => (a.name || "").toLowerCase().includes(query))) {
       results.push({ domain, entry });
     }
   }
+
   return results.slice(0, 10);
 }
 
@@ -99,19 +109,21 @@ async function getActiveTabUrl() {
 function buildSuggestIssueUrl(hostname, detectedName) {
   const title = `Add mapping for ${hostname}`;
   const bodyLines = [
+    "Thanks for helping expand the mappings dataset! 🙌",
+    "",
     `**Domain:** ${hostname}`,
     detectedName ? `**Product name:** ${detectedName}` : `**Product name:** (fill in)`,
     "",
-    "**Alternatives (OSS repos):**",
-    "- Name: ",
-    "  Repo URL: ",
-    "  Why comparable: ",
+    "**Open-source alternatives (GitHub/GitLab repo links required):**",
     "- Name: ",
     "  Repo URL: ",
     "  Why comparable: ",
     "",
-    "**Notes:**",
-    "- (optional) category, self-hosted, etc."
+    "- Name: ",
+    "  Repo URL: ",
+    "  Why comparable: ",
+    "",
+    "**Optional:** category, self-hosted, notes"
   ];
 
   const url = new URL(`${REPO_WEB}/issues/new`);
@@ -122,21 +134,22 @@ function buildSuggestIssueUrl(hostname, detectedName) {
 
 async function lookupCurrentTab() {
   const url = await getActiveTabUrl();
+
   if (!url || !url.startsWith("http")) {
     subtitleEl.textContent = "Not a normal webpage tab.";
     currentFound = null;
     currentHost = null;
+    suggestLinkEl.href = `${REPO_WEB}/issues/new`;
     renderEmpty("Open a website tab (http/https) to see alternatives.");
     return;
   }
 
-  let hostname = "";
+  let hostname = null;
   try {
     hostname = normalizeHost(new URL(url).hostname);
   } catch {
     hostname = null;
   }
-
   currentHost = hostname;
 
   const res = await chrome.runtime.sendMessage({ type: "GET_ALTERNATIVES_FOR_URL", url });
@@ -151,13 +164,15 @@ async function lookupCurrentTab() {
   subtitleEl.textContent = `Detected: ${res.hostname}`;
   currentFound = res.found;
 
-  // Update suggest link for current host
+  // Update suggest link for current host (prefilled)
   if (hostname) {
     suggestLinkEl.href = buildSuggestIssueUrl(hostname, currentFound?.name || "");
+  } else {
+    suggestLinkEl.href = `${REPO_WEB}/issues/new`;
   }
 
   if (!currentFound) {
-    renderEmpty("No mapping found for this site yet. Try searching above, or suggest adding it.");
+    renderEmpty("No mapping found for this site yet. Try searching above, or click “Suggest mapping”.");
     return;
   }
 
@@ -165,8 +180,10 @@ async function lookupCurrentTab() {
 }
 
 async function init() {
-  dataLinkEl.href = `${REPO_WEB}/blob/main/${MAPPINGS_PATH}`;
-  suggestLinkEl.href = `${REPO_WEB}/issues/new`;
+  // Footer links
+  dataLinkEl.href = `${REPO_WEB}/edit/main/${MAPPINGS_PATH}`; // goes to editor
+  suggestLinkEl.href = `${REPO_WEB}/issues/new`; // default; updated after detection
+
   optionsLinkEl.addEventListener("click", async (e) => {
     e.preventDefault();
     await chrome.runtime.openOptionsPage();
@@ -195,7 +212,9 @@ async function init() {
       return;
     }
 
-    contentEl.innerHTML = results.map((r) => renderEntry(r.domain, r.entry, `Match: ${r.domain}`)).join("");
+    contentEl.innerHTML = results
+      .map((r) => renderEntry(r.domain, r.entry, `Match: ${r.domain}`))
+      .join("");
   });
 }
 
