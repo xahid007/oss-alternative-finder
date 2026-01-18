@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Open-Source Alternative Finder — Options</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Options</h1>
+      <p class="muted">These settings sync across your browsers if you are signed in (Chrome/Brave sync).</p>
+
+      <div class="card">
+        <label class="row">
+          <input id="bannerEnabled" type="checkbox" />
+          <div>
+            <div class="label">Show on-page banner</div>
+            <div class="hint">A small banner appears on supported sites with quick links.</div>
+          </div>
+        </label>
+
+        <div class="row2">
+          <div>
+            <div class="label">Max alternatives in banner</div>
+            <div class="hint">Between 1 and 6</div>
+          </div>
+          <input id="bannerMaxItems" type="number" min="1" max="6" step="1" />
+        </div>
+
+        <div class="actions">
+          <button id="save" type="button">Save</button>
+          <span id="status" class="muted"></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Per-site hides</h2>
+        <p class="muted">If you clicked “Hide on this site” in a banner, it will not show again for that domain.</p>
+        <button id="clearHides" type="button">Clear hidden sites</button>
+        <span id="clearStatus" class="muted"></span>
+      </div>
+    </div>
+
+    <script src="options.js"></script>
+  </body>
+</html>

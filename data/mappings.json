@@ -1,0 +1,110 @@
+{
+  "notion.so": {
+    "name": "Notion",
+    "category": "Notes & Docs",
+    "alternatives": [
+      {
+        "name": "AppFlowy",
+        "url": "https://github.com/AppFlowy-IO/AppFlowy",
+        "tags": ["workspace", "notion-like"],
+        "notes": "Open-source Notion-style workspace."
+      },
+      {
+        "name": "Logseq",
+        "url": "https://github.com/logseq/logseq",
+        "tags": ["notes", "outliner"],
+        "notes": "Great for personal knowledge management."
+      },
+      {
+        "name": "AFFiNE",
+        "url": "https://github.com/toeverything/AFFiNE",
+        "tags": ["workspace", "docs"],
+        "notes": "Notion-style blocks with a local-first focus."
+      }
+    ]
+  },
+  "figma.com": {
+    "name": "Figma",
+    "category": "Design",
+    "alternatives": [
+      {
+        "name": "Penpot",
+        "url": "https://github.com/penpot/penpot",
+        "tags": ["design", "collaboration"],
+        "notes": "Open-source design and prototyping."
+      }
+    ]
+  },
+  "slack.com": {
+    "name": "Slack",
+    "category": "Team Chat",
+    "alternatives": [
+      {
+        "name": "Mattermost",
+        "url": "https://github.com/mattermost/mattermost",
+        "tags": ["chat", "self-hosted"],
+        "notes": "Popular self-hosted team chat."
+      },
+      {
+        "name": "Zulip",
+        "url": "https://github.com/zulip/zulip",
+        "tags": ["chat", "threads"],
+        "notes": "Threaded chat with great async workflow."
+      },
+      {
+        "name": "Rocket.Chat",
+        "url": "https://github.com/RocketChat/Rocket.Chat",
+        "tags": ["chat", "self-hosted"],
+        "notes": "Self-hosted chat platform."
+      }
+    ]
+  },
+  "trello.com": {
+    "name": "Trello",
+    "category": "Project Boards",
+    "alternatives": [
+      {
+        "name": "Planka",
+        "url": "https://github.com/plankanban/planka",
+        "tags": ["kanban", "self-hosted"],
+        "notes": "Clean Trello-like kanban."
+      },
+      {
+        "name": "Wekan",
+        "url": "https://github.com/wekan/wekan",
+        "tags": ["kanban", "boards"],
+        "notes": "Classic open-source kanban."
+      }
+    ]
+  },
+  "github.com": {
+    "name": "GitHub",
+    "category": "Code Hosting",
+    "alternatives": [
+      {
+        "name": "Forgejo",
+        "url": "https://codeberg.org/forgejo/forgejo",
+        "tags": ["git", "self-hosted"],
+        "notes": "Community-led Git hosting (Gitea fork)."
+      },
+      {
+        "name": "Gitea",
+        "url": "https://github.com/go-gitea/gitea",
+        "tags": ["git", "self-hosted"],
+        "notes": "Lightweight self-hosted Git service."
+      }
+    ]
+  },
+  "zoom.us": {
+    "name": "Zoom",
+    "category": "Video Meetings",
+    "alternatives": [
+      {
+        "name": "Jitsi Meet",
+        "url": "https://github.com/jitsi/jitsi-meet",
+        "tags": ["video", "self-hosted"],
+        "notes": "Open-source video conferencing."
+      }
+    ]
+  }
+}

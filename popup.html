@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Open-Source Alternatives</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <div class="title">Open-Source Alternatives</div>
+      <div id="subtitle" class="subtitle">Loading…</div>
+    </header>
+
+    <section class="search">
+      <input id="search" type="text" placeholder="Search product/domain (e.g., notion, figma.com)" />
+    </section>
+
+    <main id="content">
+      <div class="muted">Checking current tab…</div>
+    </main>
+
+    <footer>
+      <div class="left">
+        <a id="optionsLink" href="#">Options</a>
+      </div>
+      <div class="right">
+        <a id="suggestLink" href="#" target="_blank" rel="noreferrer">Suggest mapping</a>
+        <span class="dot">•</span>
+        <a id="dataLink" href="#" target="_blank" rel="noreferrer">Edit mappings</a>
+      </div>
+    </footer>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
