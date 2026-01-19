@@ -17,7 +17,8 @@ Works in **Chrome** and **Brave**.
 ---
 
 ## 📸 Screenshot
-> _(Add a screenshot of the popup here)_
+> ![Extension popup on Notion](assets/screenshots popup-notion.png)
+
 
 ---
 
