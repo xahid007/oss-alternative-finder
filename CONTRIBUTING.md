@@ -29,6 +29,8 @@ Minimal structure:
 - Alternatives should be **open-source** (link to repo when possible)
 - Avoid affiliate links
 - Keep notes factual and short
+- Projects are considered valid alternatives if their core software is open source, even if they offer paid hosting or enterprise features.
+
 
 ## Quality checklist
 - Product name is correct
