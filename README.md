@@ -17,7 +17,7 @@ Works in **Chrome** and **Brave**.
 ---
 
 ## 📸 Screenshot
-![test](/assets/screenshots/popup-notion.png)
+![Extension popup on Notion](/assets/screenshots/popup-notion.png)
 
 
 
