@@ -16,6 +16,9 @@ Works in **Chrome** and **Brave**.
 
 ---
 
+![Poster](assets/poster/OSS_Poster.png)
+
+
 ## 📸 Screenshot
 ![Extension popup on Notion](/assets/screenshots/popup-notion.png)
 
