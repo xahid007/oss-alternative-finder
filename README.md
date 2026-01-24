@@ -1,7 +1,12 @@
 # Open-Source Alternative Finder
 
-A privacy-friendly browser extension that shows **open-source alternatives**
-when you visit popular SaaS and proprietary product websites.
+<p align="center">
+  <img src="assets/poster/OSS_Poster.png" width="450" alt="OSS Alternative Finder Poster">
+  <br>
+  <b>Find privacy-friendly alternatives for your favorite SaaS tools instantly.</b>
+</p>
+
+A privacy-friendly browser extension that shows **open-source alternatives** when you visit popular SaaS and proprietary product websites.
 
 Works in **Chrome** and **Brave**.
 
