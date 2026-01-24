@@ -15,8 +15,7 @@ Works in **Chrome** and **Brave**.
 - All data is stored locally — **no tracking, no analytics**
 
 ---
-
-![Poster](assets/poster/OSS_Poster.png)
+<img src="assets/poster/OSS_Poster.png" width="400" alt="OSS Alternative Finder Poster">
 
 
 ## 📸 Screenshot
